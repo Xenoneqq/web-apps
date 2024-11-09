@@ -12,9 +12,17 @@
 
   <style>
     head, body {
-      background-color: rgb(20, 20, 20);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      width: 100vw;
+      background-color: black;
       color: rgb(240, 240, 240);
       font-family: "Montserrat", sans-serif;
+    }
+
+    .redColor{
+      color: rgb(255, 36, 36);
     }
 
     .customNav{
@@ -62,11 +70,52 @@
       top: 2.5;
     }
 
+    .image-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    } 
+
+    .fullImg{
+      width: 100%;
+    }
+
+    .image-container img {
+    width: 100%;
+    display: block;
+    }
+
+    .container{
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      margin: 20px;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .flex-text-box{
+      width: fit-content; max-width: 244px;
+      padding: 10px;
+      flex-wrap: nowrap;
+      background-color: rgb(36, 24, 24);
+      text-align: center;
+      font-size:18px;
+    }
+
+    .textPanel{
+      background-color: rgb(36, 24, 24);
+      font-size:18px;
+    }
+
+    .center{
+      text-align: center;
+      justify-content: center;
+    }
+
     footer{
       display: flex;
       flex-wrap: nowrap;
-      position: absolute;
-      left: 0px;
       width: 100%;
       height: 50px;
       align-items: center;
@@ -85,7 +134,6 @@
 
 </head>
 <body>
-
   <!-- Strefa Navu-->
   <nav class="customNav">
     <div class = "NavIcon" style="margin-left: 10px; margin-right: 25px;">
@@ -107,42 +155,85 @@
   </div>
   <!-- Strefa Navu-->
 
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
+  <div style="text-align: center;">
+    <img class="fullImg" style="max-width: 1024px;" src="assets/images/baner splitter 1.png">
+  </div>
+
+  <div style="height: 25px;"></div>
+  <div style="height:fit-content; width: 100%; 
+  display: flex; justify-content: center; align-items: center;">
+    <div style="max-width:500px; width: fit-content; height:fit-content; padding: 20px;">
+      <h1 class="redColor">Horror Rougelite Experience</h1>
+      <p>
+      Step into <b>The Hallways</b>, an endless maze in a world warped by shadows and danger.
+      You’re trapped here, surrounded by twisting corridors and silent,
+      empty rooms that pulse with a strange, unsettling energy.
+      To survive, you’ll have to explore, uncover clues,
+      and avoid the deadly entities that hunt anything that moves.<br> <br> 
+      <i>Dare to enter? Only the strongest will make it out.</i>
+      </p>
+    </div>
+    <div style="max-width:350px; width: fit-content; height:fit-content; padding: 20px;">
+      <img src="assets/images/lockers_fade.png" width="100%">
+    </div>
+  </div>
+
+  <div style="height:fit-content; width: 100%; 
+  display: flex; justify-content: center; align-items: center;">
+    <div style="max-width:500px; width: fit-content; height:fit-content; padding: 20px;">
+      <h1 class="redColor">What is Entity Zero?</h1>
+      <p>
+        Entity Zero is a <b>horror roguelite</b> that immerses you in the unsettling 
+        darkness of The Hallways, a labyrinthine world filled with deadly 
+        creatures and hidden dangers. Explore abandoned corridors, 
+        scavenge for supplies, and hunt down elusive <b>exit keys</b> to 
+        escape with whatever you can gather. As you move through 
+        this twisted maze, you’ll uncover clues that reveal the eerie 
+        secrets of this forsaken place and learn how to exploit each entity’s 
+        unique weaknesses to survive.
+      </p>
+    </div>
+    <div style="max-width:350px; width: fit-content; height:fit-content; padding: 20px;">
+      <img src="assets/images/map_fade.png" width="100%">
+    </div>
+  </div>
+
+  <div style="height:fit-content; width: 100%; 
+  display: flex; justify-content: center; align-items: center;">
+    <div style="max-width:500px; width: fit-content; height:fit-content; padding: 20px;">
+      <h1 class="redColor">Allways something NEW!</h1>
+      <p>
+        Every level in Entity Zero is randomly generated, ensuring a fresh, 
+        tense experience with every run. Each floor holds a new mix of enemies, 
+        unpredictable room layouts, and randomized loot that 
+        forces you to adapt quickly to every situation. 
+        In this ever-changing nightmare, every choice counts 
+        <br><i>will you make it out alive?</i>
+      </p>
+    </div>
+    <div style="max-width:350px; width: fit-content; height:fit-content; padding: 20px;">
+      <img src="assets/images/gen_fade.png" width="100%">
+    </div>
+  </div>
+
+  <div style="height: 25px;"></div>
+
+  <div class="container">
+    <div class="flex-text-box">
+      <b>Explore</b><br>
+      Enter a maze of twisting corridors and hidden rooms, each holding secrets waiting to be uncovered.
+    </div>
+    <div class="flex-text-box">
+      <b>Gather</b><br>
+      Navigate twisting corridors, collecting vital items, currency, and resources to endure the horrors within.
+    </div>
+    <div class="flex-text-box">
+      <b>Survive</b><br>
+      Unravel the creatures behavior, exploit their weaknesses, and stay one step ahead of their lethal presence.
+    </div>
+  </div>
+
+  <div style="height: 100px;"></div>
 
   <footer>
     <div>
