@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entity Zero</title>
+  <link rel="icon" href="assets/game_logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <style>
+    head, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      width: 100vw;
+      background-color: rgb(23, 16, 16);
+      color: rgb(240, 240, 240);
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .redColor{
+      color: rgb(255, 36, 36);
+    }
+
+    .customNav{
+      display: flex;
+      flex-wrap: nowrap;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgb(255, 36, 36);
+      height: 50px;
+      align-items: center;
+      font-size: 18px;
+    }
+
+    .gameLink{
+      background: rgb(255, 36, 36);
+      color: rgb(20, 20, 20);
+      border: none;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+      width: 300px;
+      height: 50px;
+      font-size: 24px;
+    }
+
+    .gameLink:hover{
+      color: rgb(180, 20, 20);
+    }
+
+    .customNav > div {
+      height: 50px;
+      display: flex;
+      width:fit-content;
+      text-align: center;
+      align-items: center;
+    }
+
+    .customNav > div > a{
+      color: rgb(32, 32, 32);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .darkText{
+      color: rgb(32, 32, 32);
+    }
+
+    .customNav > div > a:hover{
+      color: rgb(180, 20, 20);
+    }
+
+    .NavMargin{
+      margin-left: 25px;
+      margin-right: 25px;
+    }
+
+    .NavImg{
+      height: 30px;
+      top: 2.5;
+    }
+
+    .image-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    } 
+
+    .fullImg{
+      width: 90%;
+    }
+
+    .image-container img {
+    width: 100%;
+    display: block;
+    }
+
+    .container{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .flex-text-box{
+      width: fit-content; max-width: 244px;
+      padding: 10px;
+      flex-wrap: nowrap;
+      background-color: rgb(50, 30, 30);
+      text-align: center;
+      font-size:18px;
+    }
+
+    .textPanel{
+      background-color: rgb(36, 24, 24);
+      font-size:18px;
+    }
+
+    .center{
+      text-align: center;
+      justify-content: center;
+    }
+
+    footer{
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+      height: 50px;
+      align-items: center;
+      justify-content: center;
+      color:rgba(255,36,36,1);
+      font-weight: 600;
+
+      background: rgb(255,36,26);
+      background: rgb(255,36,26);
+      background: linear-gradient(180deg, 
+    rgba(255,36,36,1) 0%,rgba(255,36,36,1) 4%,rgb(57, 15, 15) 5%, 
+    rgb(0, 0, 0) 75%);
+    }
+
+    @media screen and (max-width: 850px){
+      .sidePhoto{
+        display: none;
+        visibility: hidden;
+      }
+    }
+    
+
+  </style>
+
+</head>
+<body>
+  <!-- Strefa Navu-->
+  <nav class="customNav">
+    <div class = "NavIcon" style="margin-left: 10px; margin-right: 25px;">
+      <img src="assets/game_logo_dark.png" class="NavImg">
+      &nbsp;&nbsp;<span class="darkText">ENTITY ZERO</span>
+    </div>
+    <div class = "NavMargin">
+      <a href="index.html">Home</a>
+    </div>
+    <div class = "NavMargin">
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class = "NavMargin">
+      <a href="gallery.html">Gallery</a>
+    </div>
+  </nav>
+  <div style="height: 50px;" >
+
+  </div>
+  <!-- Strefa Navu-->
+
+  <div style="height: 50px;" ></div>
+  <div style="text-align: center;">
+    <img class="fullImg" style="max-width: 1024px;" src="assets/entityText.png">
+  </div>
+
+  <div style="height: 25px;"></div>
+  <div style="height:fit-content; width: 100%; 
+  display: flex; justify-content: center; align-items: center;">
+    <div style="max-width:500px; width: fit-content; height:fit-content; padding: 20px;">
+      <h1 class="redColor">Horror Rougelite Experience</h1>
+      <p>
+      Step into <b>The Hallways</b>, an endless maze in a world warped by shadows and danger.
+      You’re trapped here, surrounded by twisting corridors and silent,
+      empty rooms that pulse with a strange, unsettling energy.
+      To survive, you’ll have to explore, uncover clues,
+      and avoid the deadly entities that hunt anything that moves.<br> <br> 
+      <i>Dare to enter? Only the strongest will make it out.</i>
+      </p>
+    </div>
+    <div class="sidePhoto" style="max-width:350px; width: fit-content; height:fit-content; padding: 20px;">
+      <img src="assets/images/lockers_fade.png" width="100%">
+    </div>
+  </div>
+
+  <div style="height:fit-content; width: 100%; 
+  display: flex; justify-content: center; align-items: center;">
+    <div style="max-width:500px; width: fit-content; height:fit-content; padding: 20px;">
+      <h1 class="redColor">What is Entity Zero?</h1>
+      <p>
+        Entity Zero is a <b>horror roguelite</b> that immerses you in the unsettling 
+        darkness of The Hallways, a labyrinthine world filled with deadly 
+        creatures and hidden dangers. Explore abandoned corridors, 
+        scavenge for supplies, and hunt down elusive <b>exit keys</b> to 
+        escape with whatever you can gather. As you move through 
+        this twisted maze, you’ll uncover clues that reveal the eerie 
+        secrets of this forsaken place and learn how to exploit each entity’s 
+        unique weaknesses to survive.
+      </p>
+    </div>
+    <div class="sidePhoto" style="max-width:350px; width: fit-content; height:fit-content; padding: 20px;">
+      <img src="assets/images/map_fade.png" width="100%">
+    </div>
+  </div>
+
+  <div style="height:fit-content; width: 100%; 
+  display: flex; justify-content: center; align-items: center;">
+    <div style="max-width:500px; width: fit-content; height:fit-content; padding: 20px;">
+      <h1 class="redColor">Allways something NEW!</h1>
+      <p>
+        Every level in Entity Zero is randomly generated, ensuring a fresh, 
+        tense experience with every run. Each floor holds a new mix of enemies, 
+        unpredictable room layouts, and randomized loot that 
+        forces you to adapt quickly to every situation. 
+        In this ever-changing nightmare, every choice counts 
+        <br><i>will you make it out alive?</i>
+      </p>
+    </div>
+    <div style="max-width:350px; width: fit-content; height:fit-content; padding: 20px;">
+      <img class="sidePhoto" src="assets/images/gen_fade.png" width="100%">
+    </div>
+  </div>
+
+  <div style="height: 25px;"></div>
+
+  <div class="container">
+    <div class="flex-text-box">
+      <b>Explore</b><br>
+      Enter a maze of twisting corridors and hidden rooms, each holding secrets waiting to be uncovered.
+    </div>
+    <div class="flex-text-box">
+      <b>Gather</b><br>
+      Navigate twisting corridors, collecting vital items, currency, and resources to endure the horrors within.
+    </div>
+    <div class="flex-text-box">
+      <b>Survive</b><br>
+      Unravel the creatures behavior, exploit their weaknesses, and stay one step ahead of their lethal presence.
+    </div>
+  </div>
+
+  <div style="height: 50px;"></div>
+  <h1 class="redColor" style="text-align: center;">Official Game Trailer</h1>
+  <div class="container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/2YdmRMc9J3I?si=VasTgeVkm5QsFGpC?&loop=1&autoplay=1&mute=1&subtitles=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <div class="container">
+    <form target="_blank" action="https://xenonthemlg.itch.io/entity0">
+      <input type="submit" class="gameLink" value="Download Entity Zero" />
+    </form>
+  </div>
+
+  <div style="height: 100px;"></div>
+
+  <footer>
+    <div>
+      ©Mateusz Pawliczek
+    </div>
+    
+  </footer>
+</body>
+
+</html>
