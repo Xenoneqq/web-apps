@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Entity Zero</title>
+  <title>Entity Zero - Gallery</title>
   <link rel="icon" href="assets/game_logo.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
 
   <style>
     head, body {
-      background-color: rgb(20, 20, 20);
+      background-color: rgb(23, 16, 16);
       color: rgb(240, 240, 240);
       font-family: "Montserrat", sans-serif;
     }
@@ -110,6 +110,31 @@
       justify-content: center;
     }
 
+    .gallery{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 25px;
+      max-width: 1200px;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .boxImage{
+      width: 20%;
+      min-width: 200px;
+    }
+
+    .boxImage:hover{
+      box-sizing: border-box;
+      border-style:dashed;
+      border-radius: 2px;
+      border-color: white;
+      background-color: black;
+      padding: 10px;
+    }
+
     footer{
       display: flex;
       flex-wrap: nowrap;
@@ -155,42 +180,33 @@
   </div>
   <!-- Strefa Navu-->
 
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non similique, facilis ex illum deserunt voluptas doloremque culpa. Quaerat nobis sapiente aliquid harum nisi praesentium explicabo laudantium delectus minus eveniet.
-  </p>
+
+  <main class="mainFlex">
+
+    <div><h1>Level Design</h1></div>
+    <section class="gallery">
+      <img src="assets/gallery/img1.png" class="boxImage">
+      <img src="assets/gallery/img2.png" class="boxImage">
+      <img src="assets/gallery/img3.png" class="boxImage">
+      <img src="assets/gallery/img7.png" class="boxImage">
+      <img src="assets/gallery/img5.png" class="boxImage">
+      <img src="assets/gallery/img6.png" class="boxImage">
+      <img src="assets/gallery/img4.png" class="boxImage">
+    </section>
+
+    <div><h1>Enemies</h1></div>
+    <section class="gallery">
+      <img src="assets/gallery/img1.png" class="boxImage">
+      <img src="assets/gallery/img1.png" class="boxImage">
+      <img src="assets/gallery/img1.png" class="boxImage">
+      <img src="assets/gallery/img1.png" class="boxImage">
+      <img src="assets/gallery/img1.png" class="boxImage">
+      <img src="assets/gallery/img1.png" class="boxImage">
+      <img src="assets/gallery/img1.png" class="boxImage">
+    </section>
+
+  </main>
+
 
   <footer>
     <div>

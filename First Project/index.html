@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>First Site</title>
+  <title>Entity Zero</title>
   <link rel="icon" href="assets/game_logo.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,7 @@
       padding: 0;
       overflow-x: hidden;
       width: 100vw;
-      background-color: black;
+      background-color: rgb(23, 16, 16);
       color: rgb(240, 240, 240);
       font-family: "Montserrat", sans-serif;
     }
@@ -36,6 +36,21 @@
       height: 50px;
       align-items: center;
       font-size: 18px;
+    }
+
+    .gameLink{
+      background: rgb(255, 36, 36);
+      color: rgb(20, 20, 20);
+      border: none;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+      width: 300px;
+      height: 50px;
+      font-size: 24px;
+    }
+
+    .gameLink:hover{
+      color: rgb(180, 20, 20);
     }
 
     .customNav > div {
@@ -77,7 +92,7 @@
     } 
 
     .fullImg{
-      width: 100%;
+      width: 90%;
     }
 
     .image-container img {
@@ -87,7 +102,7 @@
 
     .container{
       display: flex;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       justify-content: center;
       margin: 20px;
       gap: 30px;
@@ -98,7 +113,7 @@
       width: fit-content; max-width: 244px;
       padding: 10px;
       flex-wrap: nowrap;
-      background-color: rgb(36, 24, 24);
+      background-color: rgb(50, 30, 30);
       text-align: center;
       font-size:18px;
     }
@@ -130,6 +145,14 @@
     rgb(0, 0, 0) 75%);
     }
 
+    @media screen and (max-width: 850px){
+      .sidePhoto{
+        display: none;
+        visibility: hidden;
+      }
+    }
+    
+
   </style>
 
 </head>
@@ -144,10 +167,10 @@
       <a href="index.html">Home</a>
     </div>
     <div class = "NavMargin">
-      <a href="linkhere">Contact</a>
+      <a href="contact.html">Contact</a>
     </div>
     <div class = "NavMargin">
-      <a href="linkhere">Gallery</a>
+      <a href="gallery.html">Gallery</a>
     </div>
   </nav>
   <div style="height: 50px;" >
@@ -155,8 +178,9 @@
   </div>
   <!-- Strefa Navu-->
 
+  <div style="height: 50px;" ></div>
   <div style="text-align: center;">
-    <img class="fullImg" style="max-width: 1024px;" src="assets/images/baner splitter 1.png">
+    <img class="fullImg" style="max-width: 1024px;" src="assets/entityText.png">
   </div>
 
   <div style="height: 25px;"></div>
@@ -173,7 +197,7 @@
       <i>Dare to enter? Only the strongest will make it out.</i>
       </p>
     </div>
-    <div style="max-width:350px; width: fit-content; height:fit-content; padding: 20px;">
+    <div class="sidePhoto" style="max-width:350px; width: fit-content; height:fit-content; padding: 20px;">
       <img src="assets/images/lockers_fade.png" width="100%">
     </div>
   </div>
@@ -193,7 +217,7 @@
         unique weaknesses to survive.
       </p>
     </div>
-    <div style="max-width:350px; width: fit-content; height:fit-content; padding: 20px;">
+    <div class="sidePhoto" style="max-width:350px; width: fit-content; height:fit-content; padding: 20px;">
       <img src="assets/images/map_fade.png" width="100%">
     </div>
   </div>
@@ -212,7 +236,7 @@
       </p>
     </div>
     <div style="max-width:350px; width: fit-content; height:fit-content; padding: 20px;">
-      <img src="assets/images/gen_fade.png" width="100%">
+      <img class="sidePhoto" src="assets/images/gen_fade.png" width="100%">
     </div>
   </div>
 
@@ -231,6 +255,18 @@
       <b>Survive</b><br>
       Unravel the creatures behavior, exploit their weaknesses, and stay one step ahead of their lethal presence.
     </div>
+  </div>
+
+  <div style="height: 50px;"></div>
+  <h1 class="redColor" style="text-align: center;">Official Game Trailer</h1>
+  <div class="container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/2YdmRMc9J3I?si=VasTgeVkm5QsFGpC?&loop=1&autoplay=1&mute=1&subtitles=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <div class="container">
+    <form target="_blank" action="https://xenonthemlg.itch.io/entity0">
+      <input type="submit" class="gameLink" value="Download Entity Zero" />
+    </form>
   </div>
 
   <div style="height: 100px;"></div>
