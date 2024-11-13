@@ -110,6 +110,21 @@
       justify-content: center;
     }
 
+    .timeDisplay{
+      position: absolute;
+      right: 0px;
+      color: rgb(32, 32, 32);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 700px){
+      .timeDisplay{
+        display: none;
+        visibility: hidden;
+      }
+    }
+
     footer{
       display: flex;
       flex-wrap: nowrap;
@@ -131,6 +146,26 @@
 
   </style>
 
+  <script>
+    function theTime() {
+    let Datte = new Date();
+    let H = Datte.getHours();
+    let m = Datte.getMinutes();``
+    let s = Datte.getSeconds();
+    if (H < 10 ){
+        H = "0" + H;
+    }
+    if (m < 10 ){
+        m = "0" + m;
+    }
+    if (s < 10 ){
+        s = "0" + s;
+    }
+    document.getElementById("time").textContent = `${H} : ${m} : ${s}`
+    }
+    setInterval(theTime);
+  </script>
+
 </head>
 <body>
 
@@ -148,6 +183,9 @@
     </div>
     <div class = "NavMargin">
       <a href="gallery.html">Gallery</a>
+    </div>
+    <div class = "NavMargin timeDisplay" id="time">
+      00:00:00
     </div>
   </nav>
   <div style="height: 50px;" >

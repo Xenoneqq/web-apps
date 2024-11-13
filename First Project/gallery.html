@@ -135,6 +135,21 @@
       padding: 10px;
     }
 
+    .timeDisplay{
+      position: absolute;
+      right: 0px;
+      color: rgb(32, 32, 32);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 700px){
+      .timeDisplay{
+        display: none;
+        visibility: hidden;
+      }
+    }
+
     footer{
       display: flex;
       flex-wrap: nowrap;
@@ -156,6 +171,26 @@
 
   </style>
 
+  <script>
+    function theTime() {
+    let Datte = new Date();
+    let H = Datte.getHours();
+    let m = Datte.getMinutes();``
+    let s = Datte.getSeconds();
+    if (H < 10 ){
+        H = "0" + H;
+    }
+    if (m < 10 ){
+        m = "0" + m;
+    }
+    if (s < 10 ){
+        s = "0" + s;
+    }
+    document.getElementById("time").textContent = `${H} : ${m} : ${s}`
+    }
+    setInterval(theTime);
+  </script>
+
 </head>
 <body>
 
@@ -174,6 +209,9 @@
     <div class = "NavMargin">
       <a href="gallery.html">Gallery</a>
     </div>
+    <div class = "NavMargin timeDisplay" id="time">
+      00:00:00
+    </div>
   </nav>
   <div style="height: 50px;" >
 
@@ -185,24 +223,31 @@
 
     <div><h1>Level Design</h1></div>
     <section class="gallery">
-      <img src="assets/gallery/img1.png" class="boxImage">
-      <img src="assets/gallery/img2.png" class="boxImage">
-      <img src="assets/gallery/img3.png" class="boxImage">
-      <img src="assets/gallery/img7.png" class="boxImage">
-      <img src="assets/gallery/img5.png" class="boxImage">
-      <img src="assets/gallery/img6.png" class="boxImage">
-      <img src="assets/gallery/img4.png" class="boxImage">
+      <img src="assets/gallery/img1.png" class="boxImage" onclick="openImage('assets/gallery/img1.png')">
+      <img src="assets/gallery/img2.png" class="boxImage" onclick="openImage('assets/gallery/img2.png')">
+      <img src="assets/gallery/img3.png" class="boxImage" onclick="openImage('assets/gallery/img3.png')">
+      <img src="assets/gallery/img7.png" class="boxImage" onclick="openImage('assets/gallery/img7.png')">
+      <img src="assets/gallery/img5.png" class="boxImage" onclick="openImage('assets/gallery/img5.png')">
+      <img src="assets/gallery/img6.png" class="boxImage" onclick="openImage('assets/gallery/img6.png')">
+      <img src="assets/gallery/img4.png" class="boxImage" onclick="openImage('assets/gallery/img4.png')">
     </section>
 
     <div><h1>Enemies</h1></div>
     <section class="gallery">
-      <img src="assets/gallery/img1.png" class="boxImage">
-      <img src="assets/gallery/img1.png" class="boxImage">
-      <img src="assets/gallery/img1.png" class="boxImage">
-      <img src="assets/gallery/img1.png" class="boxImage">
-      <img src="assets/gallery/img1.png" class="boxImage">
-      <img src="assets/gallery/img1.png" class="boxImage">
-      <img src="assets/gallery/img1.png" class="boxImage">
+      <img src="assets/gallery/en1.png" class="boxImage" onclick="openImage('assets/gallery/en1.png')">
+      <img src="assets/gallery/en2.png" class="boxImage" onclick="openImage('assets/gallery/en2.png')">
+      <img src="assets/gallery/en3.png" class="boxImage" onclick="openImage('assets/gallery/en3.png')">
+      <img src="assets/gallery/en4.png" class="boxImage" onclick="openImage('assets/gallery/en4.png')">
+      <img src="assets/gallery/en5.png" class="boxImage" onclick="openImage('assets/gallery/en5.png')">
+      <img src="assets/gallery/en6.png" class="boxImage" onclick="openImage('assets/gallery/en6.png')">
+    </section>
+
+    <div><h1>Gameplay</h1></div>
+    <section class="gallery">
+      <video width="500" height="360" controls>
+        <source src="assets/video/gameplay.mp4" type="video/mp4">
+        Your browser does not support video tag
+      </video>
     </section>
 
   </main>
@@ -214,6 +259,12 @@
     </div>
     
   </footer>
+
+  <script>
+    function openImage(url){
+      window.open(url , "_blank");
+    }
+  </script>
 </body>
 
 </html>
