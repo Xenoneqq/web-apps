@@ -128,6 +128,21 @@
       justify-content: center;
     }
 
+    .timeDisplay{
+      position: absolute;
+      right: 0px;
+      color: rgb(32, 32, 32);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 700px){
+      .timeDisplay{
+        display: none;
+        visibility: hidden;
+      }
+    }
+
     footer{
       display: flex;
       flex-wrap: nowrap;
@@ -155,6 +170,26 @@
 
   </style>
 
+  <script>
+    function theTime() {
+    let Datte = new Date();
+    let H = Datte.getHours();
+    let m = Datte.getMinutes();``
+    let s = Datte.getSeconds();
+    if (H < 10 ){
+        H = "0" + H;
+    }
+    if (m < 10 ){
+        m = "0" + m;
+    }
+    if (s < 10 ){
+        s = "0" + s;
+    }
+    document.getElementById("time").textContent = `${H} : ${m} : ${s}`
+    }
+    setInterval(theTime);
+  </script>
+
 </head>
 <body>
   <!-- Strefa Navu-->
@@ -172,6 +207,9 @@
     <div class = "NavMargin">
       <a href="gallery.html">Gallery</a>
     </div>
+    <div class = "NavMargin timeDisplay" id="time">
+      00:00:00
+    </div>
   </nav>
   <div style="height: 50px;" >
 
@@ -184,7 +222,7 @@
   </div>
 
   <div style="height: 25px;"></div>
-  <div style="height:fit-content; width: 100%; 
+  <article style="height:fit-content; width: 100%; 
   display: flex; justify-content: center; align-items: center;">
     <div style="max-width:500px; width: fit-content; height:fit-content; padding: 20px;">
       <h1 class="redColor">Horror Rougelite Experience</h1>
@@ -200,9 +238,9 @@
     <div class="sidePhoto" style="max-width:350px; width: fit-content; height:fit-content; padding: 20px;">
       <img src="assets/images/lockers_fade.png" width="100%">
     </div>
-  </div>
+  </article>
 
-  <div style="height:fit-content; width: 100%; 
+  <article style="height:fit-content; width: 100%; 
   display: flex; justify-content: center; align-items: center;">
     <div style="max-width:500px; width: fit-content; height:fit-content; padding: 20px;">
       <h1 class="redColor">What is Entity Zero?</h1>
@@ -220,9 +258,9 @@
     <div class="sidePhoto" style="max-width:350px; width: fit-content; height:fit-content; padding: 20px;">
       <img src="assets/images/map_fade.png" width="100%">
     </div>
-  </div>
+  </article>
 
-  <div style="height:fit-content; width: 100%; 
+  <article style="height:fit-content; width: 100%; 
   display: flex; justify-content: center; align-items: center;">
     <div style="max-width:500px; width: fit-content; height:fit-content; padding: 20px;">
       <h1 class="redColor">Allways something NEW!</h1>
@@ -235,10 +273,10 @@
         <br><i>will you make it out alive?</i>
       </p>
     </div>
-    <div style="max-width:350px; width: fit-content; height:fit-content; padding: 20px;">
-      <img class="sidePhoto" src="assets/images/gen_fade.png" width="100%">
+    <div class="sidePhoto" style="max-width:350px; width: fit-content; height:fit-content; padding: 20px;">
+      <img src="assets/images/gen_fade.png" width="100%">
     </div>
-  </div>
+  </article>
 
   <div style="height: 25px;"></div>
 
