@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entity Zero - Contact</title>
+  <link rel="icon" href="assets/game_logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <style>
+    head, body {
+      background-color: rgb(23, 16, 16);
+      color: rgb(240, 240, 240);
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .redColor{
+      color: rgb(255, 36, 36);
+    }
+
+    .inputDisplay{
+      width: 100%;
+      font-family: "Montserrat", sans-serif;
+      padding: 6px;
+    }
+
+    .submitBtn{
+      background: rgb(255, 36, 36);
+      color: rgb(20, 20, 20);
+      border: none;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+      width: 300px;
+      height: 50px;
+      font-size: 24px;
+    }
+
+    .customNav{
+      display: flex;
+      flex-wrap: nowrap;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgb(255, 36, 36);
+      height: 50px;
+      align-items: center;
+      font-size: 18px;
+    }
+
+    .customNav > div {
+      height: 50px;
+      display: flex;
+      width:fit-content;
+      text-align: center;
+      align-items: center;
+    }
+
+    .customNav > div > a{
+      color: rgb(32, 32, 32);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .darkText{
+      color: rgb(32, 32, 32);
+    }
+
+    .customNav > div > a:hover{
+      color: rgb(180, 20, 20);
+    }
+
+    .NavMargin{
+      margin-left: 25px;
+      margin-right: 25px;
+    }
+
+    .NavImg{
+      height: 30px;
+      top: 2.5;
+    }
+
+    .container{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .mainFlex{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      margin: 10px;
+      gap: 20px;
+    }
+
+    .flex-text-box{
+      width: fit-content; max-width: 244px;
+      padding: 10px;
+      flex-wrap: nowrap;
+      background-color: rgb(36, 24, 24);
+      text-align: center;
+      font-size:18px;
+    }
+
+    .textPanel{
+      background-color: rgb(36, 24, 24);
+      font-size:18px;
+    }
+
+    .center{
+      text-align: center;
+      justify-content: center;
+    }
+
+    .timeDisplay{
+      position: absolute;
+      right: 0px;
+      color: rgb(32, 32, 32);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 700px){
+      .timeDisplay{
+        display: none;
+        visibility: hidden;
+      }
+    }
+
+    footer{
+      display: flex;
+      flex-wrap: nowrap;
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      height: 50px;
+      align-items: center;
+      justify-content: center;
+      color:rgba(255,36,36,1);
+      font-weight: 600;
+
+      background: rgb(255,36,26);
+      background: rgb(255,36,26);
+      background: linear-gradient(180deg, 
+    rgba(255,36,36,1) 0%,rgba(255,36,36,1) 4%,rgb(57, 15, 15) 5%, 
+    rgb(0, 0, 0) 75%);
+    }
+
+  </style>
+
+  <script>
+    function theTime() {
+    let Datte = new Date();
+    let H = Datte.getHours();
+    let m = Datte.getMinutes();``
+    let s = Datte.getSeconds();
+    if (H < 10 ){
+        H = "0" + H;
+    }
+    if (m < 10 ){
+        m = "0" + m;
+    }
+    if (s < 10 ){
+        s = "0" + s;
+    }
+    document.getElementById("time").textContent = `${H} : ${m} : ${s}`
+    }
+    setInterval(theTime);
+  </script>
+
+</head>
+<body>
+
+  <!-- Strefa Navu-->
+  <nav class="customNav">
+    <div class = "NavIcon" style="margin-left: 10px; margin-right: 25px;">
+      <img src="assets/game_logo_dark.png" class="NavImg">
+      &nbsp;&nbsp;<span class="darkText">ENTITY ZERO</span>
+    </div>
+    <div class = "NavMargin">
+      <a href="index.html">Home</a>
+    </div>
+    <div class = "NavMargin">
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class = "NavMargin">
+      <a href="gallery.html">Gallery</a>
+    </div>
+    <div class = "NavMargin timeDisplay" id="time">
+      00:00:00
+    </div>
+  </nav>
+  <div style="height: 50px;" >
+
+  </div>
+  <!-- Strefa Navu-->
+
+  <main class="mainFlex">
+
+    <div style="text-align: center;">
+      <h1>Questions? New Ideas? Bug reports?</h1>
+      <h4>
+        Tell us about your experience. <br>
+        Your feedback is much appreciated!
+      </h4>
+    </div>
+
+    <div class="redColor" id="errorMessage" style="text-align: center; font-weight: 100;">
+
+    </div>
+
+    <div style="max-width: 600px; width: 80%">
+      <div>Your email</div>
+      <input type="text" id="mail" class="inputDisplay" placeholder="youremail@mail.com">
+    </div>
+
+    <div style="max-width: 600px; width: 80%">
+      <div>What would you like to discuss?</div>
+      <select name ="topic" id="topic" class="inputDisplay">
+        <option>I have feedback regarding the game</option>
+        <option>I have an Idea for new content</option>
+        <option>I want to report a bug</option>
+        <option>I want to ask a question</option>
+        <option>I want to share my experience</option>
+        <option>I want to request support</option>
+      </select>
+    </div>
+
+    <div style="max-width: 600px; width: 80%">
+      <div>Write your message here</div>
+      <textarea id="message" onkeydown="updateLength()" onkeyup="updateLength()" maxlength="2000" rows="20" class="inputDisplay" placeholder="Your message goes here..." style="resize: none;"></textarea>
+      <div id="lengthDisplay" style="text-align: right; width: 100%; color: gray;">
+        0/2000
+      </div>
+    </div>
+
+    <input onclick="sendMessage()" type="submit" value="Send message" class="submitBtn">
+    
+    <div style="height: 50px;"></div>
+  </main>
+
+  <footer>
+    <div>
+      ©Mateusz Pawliczek
+    </div>
+    
+  </footer>
+
+  <script>
+
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Przekształcenie dni na milisekundy
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
+
+    function getCookie(name) {
+      const decodedCookie = decodeURIComponent(document.cookie);
+      const cookies = decodedCookie.split(';');
+      for(let i = 0; i < cookies.length; i++) {
+          let cookie = cookies[i].trim();
+          if (cookie.indexOf(name + "=") === 0) {
+              return cookie.substring(name.length + 1);
+          }
+      }
+      return "";
+    }
+
+    var savedEmail = getCookie("lastEmail");
+    if(savedEmail){
+      document.getElementById("mail").value = savedEmail;
+    }
+
+    function updateLength(){
+      let msg = document.getElementById("message").value;
+      document.getElementById("lengthDisplay").innerText = msg.length + "/2000"
+    }
+
+    function sendMessage(){
+      let error = document.getElementById("errorMessage")
+      let email = document.getElementById("mail").value;
+
+      if(email.length == 0 || email == null){
+        error.innerText = "Email is required"
+        return;
+      }
+
+      let a; let exist = false;
+      for(a = 0; a < email.length; a++){
+        if(email[a] == '@'){
+          if(exist === false){
+            exist = true;
+          }
+          else{
+            error.innerText = "The given email is incorrect..."
+            return;
+          }
+        }
+      }
+      if (exist === false){
+        error.innerText = "The given email is incorrect..."
+        return;
+      }
+
+      let topic = document.getElementById("topic").value;
+      switch(topic){
+        case "I have feedback regarding the game": break;
+        case "I have an Idea for new content": break;
+        case "I want to report a bug": break;
+        case "I want to ask a question": break;
+        case "I want to share my experience": break;
+        case "I want to request support": break;
+        default: {
+          error.innerText = "Selected contact reason does not exist...";
+          return;
+        }
+      }
+
+      let msg = document.getElementById("message").value;
+      if(msg.length > 2000){
+        error.innerText = "Message is too long! (2000 characters max)";
+        return;
+      }
+      if(msg.length == 0){
+        error.innerText = "Message can't be empty...";
+        return;
+      }
+
+      setCookie("lastEmail" , email, 3)
+      error.innerText = "Message sent"
+      window.open("index.html" , "_self")
+      
+    }
+
+  </script>
+</body>
+
+</html>
