@@ -125,6 +125,29 @@
       }
     }
 
+    .navEntityLogo{
+      margin-left: 10px; margin-right: 25px;
+    }
+
+    @media screen and (max-width: 500px) {
+      .navEntityLogo{
+        display: none;
+        visibility: hidden;
+        width: 0px;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      .disableLogo{
+        display: none;
+        visibility: hidden;
+      }
+
+      .customNav{
+        justify-content: center;
+      }
+    }
+
     footer{
       display: flex;
       flex-wrap: nowrap;
@@ -171,9 +194,9 @@
 
   <!-- Strefa Navu-->
   <nav class="customNav">
-    <div class = "NavIcon" style="margin-left: 10px; margin-right: 25px;">
-      <img src="assets/game_logo_dark.png" class="NavImg">
-      &nbsp;&nbsp;<span class="darkText">ENTITY ZERO</span>
+    <div class = "NavIcon navEntityLogo">
+      <img src="assets/game_logo_dark.png" class="NavImg disableLogo">
+      <span class="darkText disableLogo">&nbsp;&nbsp;ENTITY ZERO</span>
     </div>
     <div class = "NavMargin">
       <a href="index.html">Home</a>
