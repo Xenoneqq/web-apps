@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zombie Game</title>
+
+  <style>
+    head, body{
+      overflow: hidden;
+      background-color: black;
+    }
+
+    body{
+      background-image: url("assets/board-bg.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    .playerStatBar{
+      pointer-events: none;
+      user-select: none;
+      width: 100%;
+      height: 50px;
+    }
+
+    .heartSpace{
+      pointer-events: none;
+      user-select: none;
+      position: absolute;
+      left: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      gap: 10px;
+    }
+    
+    .score{
+      pointer-events: none;
+      user-select: none;
+      position: absolute;
+      right: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: right;
+      gap: 10px;
+
+      color: white;
+      font-size: 48px;
+      font-weight: 600;
+    }
+
+    #crosshair{
+      position: fixed;
+      user-select: none;
+      width: 150px;
+      height: 150px;
+      background: url('assets/aim.png') no-repeat center center;
+      background-size: contain; /* Dopasowanie grafiki do rozmiaru elementu */
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+    }
+
+    #zombieField{
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      height: 300px;
+    }
+
+    #zombie{
+      position: fixed;
+      width: 100px;
+      height: 100px;
+    }
+
+    .zombieImg{
+      background-image: url('assets/walkingdead.png');
+      background-repeat: no-repeat;
+      background-position: 20000px 0;
+      background-size: 2000px;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div id="background" style="position: absolute; pointer-events: auto; width: 100%; height: 100%;">
+    <nav class="playerStatBar">
+      <div id="health" class="heartSpace">
+        <img src="assets/full_heart.png" width="50px">
+        <img src="assets/full_heart.png" width="50px">
+        <img src="assets/full_heart.png" width="50px">
+      </div>
+      <div id="score" class="score">
+        10000
+      </div>
+    </nav>
+    <div id="zombieField"></div>
+    <div id="crosshair"></div>
+  </div>
+  <script>
+
+    class Zombie {
+      constructor(zombie, listID){
+        this.position = 0;
+        this.zombieObj = zombie;
+        this.speed = 0.6 + Math.random() * 2.2;
+        this.listID = listID;
+      }
+
+      get currPosition() {
+        return this.position;
+      }
+
+      kill(){
+        console.log('ah')
+        zombieField.removeChild(this.zombieObj);
+          for(let i = 0; i < zombies.length; i++){
+            if(zombies[i].listID == this.listID){
+              zombies.splice(i,1);
+              break;
+            }
+          }
+      }
+
+      moveZombie(){
+        this.position += this.speed * deltaTime / 10000;
+        this.position = Math.max(0, Math.min(1, this.position));
+        let windowWidth = window.innerWidth;
+        let zombieWidth = this.zombieObj.offsetWidth;
+        let newPositionX = (1 - this.position) * windowWidth - zombieWidth / 2;
+        this.zombieObj.style.transform = `translateX(${newPositionX}px)`;
+        if(this.position == 1){
+          takeDamage();
+          this.kill();
+        }
+      }
+    }
+    // score variables
+    score = 0;
+    scoreText = document.getElementById("score");
+    drawScore();
+    
+    // health variables
+    heartSlot = document.getElementById("health");
+    maxhealth = 3;
+    health = 3;
+    drawHearts(heartSlot);
+
+    // zombies
+    zombieField = document.getElementById("zombieField");
+
+    // crosshair
+    crosshair = document.getElementById("crosshair")
+
+    // zombies
+    let zombies = []
+
+    deltaTime = 0.16;
+    zombieTime = 2;
+    function Update(){
+      zombies.forEach((zombie, index) => {
+        zombie.moveZombie();
+      });
+      if(health != 0) zombieTime -= deltaTime / 600;
+      if(zombieTime <= 0){
+        zombieTime = Math.random() + 0.8;
+        createZombie(0.5 + Math.random()*0.5)
+      }
+    }
+
+    function timeLoop() {
+      let lastTime = performance.now(); // Pobieramy początkowy czas
+
+      setInterval(() => {
+        const currentTime = performance.now();
+        deltaTime = currentTime - lastTime; 
+        lastTime = currentTime;
+        Update();
+      }, 16);
+    }
+    timeLoop();
+
+    let zombieCount = 0;
+    function createZombie(scale){
+      let zombie = document.createElement("div");
+      zombie.classList.add("zombieImg")
+      zombieField.appendChild(zombie);
+      AnimateZombie(zombie, scale);
+      zombies.push(new Zombie(zombie , zombieCount));
+      let z = zombieCount;
+      zombie.addEventListener('click' , () => killZombie(z));
+      zombieCount += 1;
+    }
+
+    function drawHearts(){
+      heartSlot.innerHTML = "";
+      hearts = [maxhealth];
+      for(let i = 0; i < maxhealth; i++){
+        hearts[i] = document.createElement("div");
+        heartSlot.appendChild(hearts[i]);
+        if(i < health)
+          hearts[i].innerHTML = '<img src="assets/full_heart.png" width="50px">'
+        else
+          hearts[i].innerHTML = '<img src="assets/empty_heart.png" width="50px">'
+      } 
+    }
+
+    function killZombie(zombieID){
+      for(let i = 0; i < zombies.length; i++){
+            if(zombies[i].listID == zombieID){
+              zombies[i].kill();
+              addScore(20)
+            }
+          }
+    }
+
+    function takeDamage(){
+      health -= 1;
+      health = Math.max(health , 0);
+      drawHearts();
+    }
+
+    function drawScore(){
+      scoreText.innerText = score;
+    }
+
+    function addScore(amount){
+      score += amount;
+      if(score < 0) score = 0;
+      drawScore();
+    }
+
+    function AnimateZombie(zombieObj, scale){
+      const localZombieobj = zombieObj
+      let currentFrame = 0;
+      const allFrames = 10;
+      const trueSize = (2000 * scale);
+      const frameWidth = trueSize / allFrames;
+      localZombieobj.style.backgroundSize = trueSize + 'px';
+      localZombieobj.style.width = frameWidth + 'px';
+      localZombieobj.style.height = (frameWidth*2) + 'px';
+      localZombieobj.style.zIndex = '' + (1 + (1 * scale)*40)
+      localZombieobj.style.marginTop = ((1-scale)*80) + 'px'
+      function nextFrame(){
+        const offsetX = -(currentFrame * frameWidth);
+        localZombieobj.style.backgroundPosition = offsetX + 'px 0'
+        currentFrame = (currentFrame + 1) % allFrames;
+      }
+
+      setInterval(nextFrame , 100);
+    }
+
+    // aiming
+    document.addEventListener('mousemove', (event) => {
+      const x = event.clientX;
+      const y = event.clientY;
+      crosshair.style.left = `${x}px`;
+      crosshair.style.top = `${y}px`;
+    });
+
+    // background penalty
+    bg = document.getElementById('background');
+    bg.addEventListener('click' , () => {
+      if(event.target != bg && event.target != zombieField) return;
+      addScore(-5)
+    })
+  </script>
+</body>
+</html>
