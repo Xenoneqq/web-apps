@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <style>
+    html, body, head{
+      background-color: black;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .centerPanel{
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .passwordPanel{
+      position: relative;
+      max-width: 400px;
+      max-height: 300px;
+      width: 100%;
+      height: fit-content;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(40, 33, 73);
+      gap: 20px;
+      color: white;
+      font-size: 14px;
+    }
+
+    .display{
+      color: white;
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    .passwordPanel > button{
+      width: 200px;
+      height: 30px;
+      background-color: rgb(87, 56, 115);
+      color: white;
+      font-size: 16px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="centerPanel">
+    <div class="passwordPanel">
+      <div class = "display">Password Generator</div>
+      <div> 
+        Min size<br>
+        <input id="minsize" type="text">
+      </div>
+      <div> 
+        Max size<br>
+        <input id="maxsize" type="text">
+      </div>
+      <div> 
+        <input id="capital" type="checkbox">
+        capital letters?
+      </div>
+
+      <div> 
+        <input id="special" type="checkbox">
+        special characters?
+      </div>
+
+      <button onclick="generate()">GENERATE</button>
+    </div>
+  </div>
+
+  <script>
+
+    minval = document.getElementById("minsize")
+    maxval = document.getElementById("maxsize")
+    capval = document.getElementById("capital")
+    specval = document.getElementById("special")
+
+    lowercase = "abcdefghijklmnopqrstuvwxyz"
+    uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    special = "!@#$%^&*()-_=+[{]}|;:<.>/?"
+
+    function generate(){
+      minl = parseInt(minval.value);
+      maxl = parseInt(maxval.value);
+      cap = capval.checked;
+      spec = specval.checked;
+
+      if(isNaN(minl)) {alert("incorrect Input!"); return;}
+      else if(isNaN(maxl)) {alert("incorrect Input!"); return;}
+
+      let amount = parseInt(Math.random() * (maxl - minl + 1) + minl, 10);
+      let randList = lowercase
+      if(cap == true) randList += uppercase
+      if(spec == true) randList += special
+      pass = ""
+      while(amount > 0){
+        pass += randList[ parseInt(Math.random() * randList.length, 10) ]
+        amount--;
+      }
+
+      alert(pass)
+    }
+
+  </script>
+</body>
+</html>

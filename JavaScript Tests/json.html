@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Table</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: black;
+      font-family: "Montserrat", sans-serif;
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    input, select {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+      background-color: #2c1138;
+      border: 1px solid #3c194c;
+      color: white;
+      border-radius: 5px;
+    }
+
+    table {
+      width: 100%;
+      max-width: 800px;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #2f1d3c;
+    }
+
+    th {
+      background-color: #3c194c;
+    }
+
+    tr:nth-child(even) {
+      background-color: #2c1138;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #3c194c;
+    }
+
+    img {
+      max-width: 100px;
+      height: auto;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div>
+      <input type="text" id="filterInput" placeholder="Filter by title..." oninput="filterProducts()">
+      <select id="sortSelect" onchange="sortProducts()">
+        <option value="original">Initial Order</option>
+        <option value="asc">Sort by Price (Low to High)</option>
+        <option value="desc">Sort by Price (High to Low)</option>
+      </select>
+    </div>
+
+    <table id="productTable">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const apiUrl = "https://dummyjson.com/products";
+    let products = [];
+
+    async function fetchDataDebug() {
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      console.log(data);
+      products = data.products.slice(0, 30);
+      displayProducts(products);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+}
+
+    // Getting data from API
+    async function fetchData() {
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        products = data.products.slice(0, 30);
+        displayProducts(products);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    // Display products
+    function displayProducts(products) {
+      const tableBody = document.querySelector("#productTable tbody");
+      tableBody.innerHTML = "";
+
+      products.forEach(product => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td><img src="${product.images[0]}" alt="${product.title}"></td>
+          <td>${product.title}</td>
+          <td>${product.description}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    // Filter products
+    function filterProducts() {
+      const filterText = document.getElementById("filterInput").value.toLowerCase();
+      const filteredProducts = products.filter(product => product.title.toLowerCase().includes(filterText));
+      displayProducts(filteredProducts);
+    }
+
+    // Sort products
+    function sortProducts() {
+      const sortOrder = document.getElementById("sortSelect").value;
+      let sortedProducts = [...products];
+
+      if (sortOrder === "asc") {
+        sortedProducts.sort((a, b) => a.price - b.price);
+      } else if (sortOrder === "desc") {
+        sortedProducts.sort((a, b) => b.price - a.price);
+      }
+
+      displayProducts(sortedProducts);
+    }
+
+    fetchData();
+  </script>
+
+</body>
+</html>
