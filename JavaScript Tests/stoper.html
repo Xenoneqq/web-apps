@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopper</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <style>
+    html, body, head{
+      background-color: black;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .centerPanel{
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stopperPanel{
+      position: relative;
+      max-width: 400px;
+      max-height: 300px;
+      width: 100%;
+      height: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(40, 33, 73);
+      gap: 20px;
+    }
+
+    .display{
+      color: white;
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    .stopperPanel > button{
+      width: 200px;
+      height: 30px;
+      background-color: rgb(87, 56, 115);
+      color: white;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="centerPanel">
+    <div class="stopperPanel">
+      <div id="display" class = "display">0 min 0 sec</div>
+      <button onclick="start()">START</button>
+      <button onclick="stop()">STOP</button>
+      <button onclick="reset()">RESET</button>
+    </div>
+  </div>
+
+  <script>
+
+    paused = true;
+    timeInMilsec =550000;
+    timedispl = document.getElementById("display")
+
+    function Update(){
+      if(!paused) timeInMilsec += deltaTime;
+      timedispl.innerText =  
+      Math.floor(timeInMilsec / 60000) + ' min '
+      + Math.floor((timeInMilsec / 1000)%60) + ' sec';
+    }
+
+    function stop(){
+      paused = true;
+    }
+
+    function start(){
+      paused = false;
+    }
+
+    function reset(){
+      timeInMilsec = 0;
+      stop();
+    }
+
+    function timeLoop() {
+      let lastTime = performance.now(); // Pobieramy początkowy czas
+
+      setInterval(() => {
+        const currentTime = performance.now();
+        deltaTime = currentTime - lastTime; 
+        lastTime = currentTime;
+        Update();
+      }, 5);
+    }
+    timeLoop();
+
+  </script>
+</body>
+</html>
