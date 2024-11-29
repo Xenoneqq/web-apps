@@ -17,6 +17,7 @@
       background-position: center;
       background-attachment: fixed;
       background-size: cover;
+      cursor: none;
     }
 
     .playerStatBar{
@@ -267,6 +268,10 @@
     function ShowDeathPopup(){
       deathPopup.style.visibility = 'visible';
       deathPopup.style.opacity = '1';
+      for(let i = zombies.length-1; i >= 0; i--){
+        if(zombies[i] !== undefined) zombies[i].killObject();
+      }
+      zombies = []
     }
 
     function RestartGameButton(){
@@ -342,6 +347,7 @@
     bg = document.getElementById('background');
     bg.addEventListener('click' , () => {
       if(event.target != bg && event.target != zombieField) return;
+      if(health == 0) return;
       addScore(-5)
     })
   </script>
